@@ -1,4 +1,4 @@
-#include "ExceptionError.h"
+#include "exceptionerror.h"
 
 
 ExceptionError::ExceptionError(const char *msg) : QException()

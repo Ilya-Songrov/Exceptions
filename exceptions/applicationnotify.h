@@ -2,7 +2,7 @@
 
 #include <QObject>
 
-#include "ExceptionError.h"
+#include "exceptionerror.h"
 
 template<class T>
 class ApplicationNotify : public T

@@ -1,4 +1,4 @@
-#include "UnixSignalNotifier.h"
+#include "unixsignalnotifier.h"
 #include <sys/socket.h>
 #include <signal.h>
 #include <unistd.h>

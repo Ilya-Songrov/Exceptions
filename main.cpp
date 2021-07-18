@@ -3,13 +3,13 @@
 #include <QTimer>
 #include <iostream>
 
-#include "ApplicationNotify.h"
+#include "applicationnotify.h"
 
 int main(int argc, char *argv[])
 {
     try {
         ApplicationNotify<QCoreApplication> app(argc, argv);
-        QCoreApplication::setApplicationVersion("0.0.1");
+        QCoreApplication::setApplicationVersion("0.0.2");
 
         QCommandLineParser parser;
         parser.setApplicationDescription("App description");
