@@ -59,7 +59,8 @@ void UnixSignalNotifier::handleSIGHUP()
 {
     socketNotifierSIGTERM->setEnabled(false);
     char tmp;
-    ::read(sighupFifeDescriptor[1], &tmp, sizeof(tmp));
+    const auto ret = ::read(sighupFifeDescriptor[1], &tmp, sizeof(tmp));
+    Q_UNUSED(ret)
 
     // do Qt stuff
     emit signalUnix();
@@ -71,7 +72,8 @@ void UnixSignalNotifier::handleSIGTERM()
 {
     socketNotifierSIGHUP->setEnabled(false);
     char tmp;
-    ::read(sigtermFifeDescriptor[1], &tmp, sizeof(tmp));
+    const auto ret = ::read(sigtermFifeDescriptor[1], &tmp, sizeof(tmp));
+    Q_UNUSED(ret)
 
     // do Qt stuff
     emit signalUnix();
@@ -82,11 +84,13 @@ void UnixSignalNotifier::handleSIGTERM()
 void UnixSignalNotifier::hupSignalHandler(int)
 {
     char a = 1;
-    ::write(sighupFifeDescriptor[0], &a, sizeof(a));
+    const auto ret = ::write(sighupFifeDescriptor[0], &a, sizeof(a));
+    Q_UNUSED(ret)
 }
 
 void UnixSignalNotifier::termSignalHandler(int)
 {
     char a = 1;
-    ::write(sigtermFifeDescriptor[0], &a, sizeof(a));
+    const auto ret = ::write(sigtermFifeDescriptor[0], &a, sizeof(a));
+    Q_UNUSED(ret)
 }
